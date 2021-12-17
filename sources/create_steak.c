@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:54:14 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/16 16:42:04 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:09:57 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	fill_list(t_data *list, char *str)
 	i = 1;
 	inp_val = ft_atoi(str);
 	if (inp_val > 2147483647 || inp_val < -2147483648)
+	{
+		write(1, "error\n", 6);
 		return (1);
+	}
 	list->value = inp_val;
 	list->index = i++;
 	list->flag = 0;

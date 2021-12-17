@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:36:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/16 18:38:23 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:04:29 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,24 @@ int	main(int argc, char **argv)
 {
 	t_data	*list;
 
-	if (argc < 3)
-		return (0);// если аргументов меньше 2 - конец
-	if (validation_check(argv))
+	if (argc < 3)// если передано меньше 2 аргументов - конец
 		return (0);
+	if (validation_check(argv))// проверка на валидные значения
+	{
+		write(1, "error: the string contains invalid characters\n", 46);
+		return (0);
+	}
 	list = create_list(argc, argv);//вызываю ф-цию создания струтуры
+	if (check_dup(list))// проверка на дубли
+	{
+		write(1, "error: the string contains duplicates\n", 38);
+		return (0);
+	}
+	if (check_sort(list))// проверка на отсортированность
+	{
+		write(1, "the string is sorted\n", 21);
+		return (0);
+	}
 	print_content(list);//печатаю значения структуры в том порядке в каком получил
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	t_list	*a1;
-// 	t_list	*a2;
-// 	char	*b = "123";
-// 	char	*c = "456";
-// 	char	*d = "789";
-
-// 	a1 = ft_lstnew(b);
-// 	a1->next = ft_lstnew(c);
-// 	print_content(a1);
-// 	printf("\n");
-// 	a2 = ft_lstnew(d);
-// 	print_content(a2);
-// 	printf("\n");
-// 	ft_lstadd_back(&a1, a2);
-// 	print_content(a1);
-// 	return (0);
-// }

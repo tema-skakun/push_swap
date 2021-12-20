@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:36:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/17 22:04:29 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/20 17:17:23 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,20 @@ int	main(int argc, char **argv)
 	if (validation_check(argv))// проверка на валидные значения
 	{
 		write(1, "error: the string contains invalid characters\n", 46);
-		return (0);
+		exit (0);
 	}
 	list = create_list(argc, argv);//вызываю ф-цию создания струтуры
 	if (check_dup(list))// проверка на дубли
 	{
 		write(1, "error: the string contains duplicates\n", 38);
-		return (0);
+		exit (0);
 	}
 	if (check_sort(list))// проверка на отсортированность
 	{
 		write(1, "the string is sorted\n", 21);
-		return (0);
+		exit (0);
 	}
-	print_content(list);//печатаю значения структуры в том порядке в каком получил
+	print_content(list);
+	exit (0);
 	return (0);
 }

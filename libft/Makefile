@@ -6,7 +6,7 @@
 #    By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/11 18:42:30 by fdarkhaw          #+#    #+#              #
-#    Updated: 2021/11/17 12:03:32 by fdarkhaw         ###   ########.fr        #
+#    Updated: 2021/12/20 17:58:13 by fdarkhaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,22 +23,19 @@ LIST		=		ft_isalpha.c	ft_isdigit.c	ft_isalnum.c\
 					ft_strjoin.c	ft_strtrim.c	ft_split.c\
 					ft_itoa.c		ft_strmapi.c	ft_striteri.c\
 					ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c\
-					ft_putnbr_fd.c
-
-LIST_B		=		ft_lstnew.c		ft_lstadd_front.c	ft_lstsize.c\
-					ft_lstlast.c	ft_lstadd_back.c	ft_lstdelone.c\
-					ft_lstclear.c	ft_lstiter.c		ft_lstmap.c
+					ft_putnbr_fd.c	ft_lstnew.c		ft_lstadd_front.c\
+					ft_lstsize.c	ft_lstlast.c	ft_lstadd_back.c\
+					ft_lstdelone.c	ft_lstclear.c	ft_lstiter.c\
+					ft_lstmap.c
 
 HEADER		= libft.h
 
 OBJ			= ${patsubst %.c,%.o,$(LIST)}
 
-OBJ_B		= ${patsubst %.c,%.o,$(LIST_B)}
-
 CC			= gcc
 FLAGS		= -Wall -Wextra -Werror -I $(HEADER)
 
-.PHONY		: all clean fclean re bonus
+.PHONY		: all clean fclean re
 
 all			: $(NAME)
 
@@ -48,11 +45,8 @@ $(NAME)		: $(OBJ) $(HEADER)
 %.o : %.c $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
-bonus	:
-	make OBJ="$(OBJ_B)" all
-
 clean:
-	rm -f $(OBJ) $(OBJ_B)
+	rm -f $(OBJ)
 
 fclean:		clean
 	rm -f $(NAME)

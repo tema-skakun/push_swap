@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/17 21:35:29 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/20 17:59:56 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,10 @@ int		fill_list(t_data *list, char *str);
 int		validation_check(char **str);
 int		check_dup(t_data *list);
 int		check_sort(t_data *list);
+void	sa(t_data *list_a);
+void	sb(t_data *list_b);
+void	ss(t_data *list_a, t_data *list_b);
+void	pa(t_data *list_a, t_data *list_b);
+void	pb(t_data *list_a, t_data *list_b);
 
 #endif

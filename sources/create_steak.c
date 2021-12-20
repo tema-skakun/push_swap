@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:54:14 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/17 17:09:57 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/20 17:10:32 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	fill_list(t_data *list, char *str)
 	inp_val = ft_atoi(str);
 	if (inp_val > 2147483647 || inp_val < -2147483648)
 	{
-		write(1, "error\n", 6);
+		write(1, "error: the number is outside the acceptable values\n", 51);
 		return (1);
 	}
 	list->value = inp_val;
@@ -41,14 +41,14 @@ t_data	*create_list(int argc, char **argv)
 	tmp = (t_data *)malloc(sizeof(t_data));
 	list = tmp;
 	if (fill_list(tmp, argv[i]))
-		return (0);
+		exit (0);
 	while (argc > 2)
 	{
 		i++;
 		tmp->next = (t_data *)malloc(sizeof(t_data));
 		tmp = tmp->next;
 		if (fill_list(tmp, argv[i]))
-			return (0);
+			exit (0);
 		argc--;
 	}
 	return (list);

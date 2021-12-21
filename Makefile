@@ -6,7 +6,7 @@
 #    By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:51:18 by fdarkhaw          #+#    #+#              #
-#    Updated: 2021/12/20 17:45:48 by fdarkhaw         ###   ########.fr        #
+#    Updated: 2021/12/21 22:03:04 by fdarkhaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,11 @@ LIBFT_DIR	= ./libft/
 SRCS		= 	./sources/main.c\
 				./sources/create_steak.c\
 				./sources/check_input.c\
-				./sources/sorting_commands.c\
-				./sources/sorting_commands_1.c\
-				./sources/sorting_commands_2.c\
+				./sources/sorting_swap.c\
+				./sources/sorting_push.c\
+				./sources/sorting_rotation.c\
+				./sources/sorting_revers_rotation.c\
+				./sources/sorting.c\
 				
 		
 OBJ			= $(SRCS:.c=.o)

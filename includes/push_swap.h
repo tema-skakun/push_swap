@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/21 23:55:03 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:13:30 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ int		validation_check(char **str);
 int		check_dup(t_data *list);
 int		check_sort(t_data *list);
 
-void	swap(t_data **list);
-void	push(t_data **list_a, t_data **list_b);
-void	rotation(t_data **list);
-void	revers_rotation(t_data **list);
-
 void	sa(t_data **list_a);
 void	sb(t_data **list_b);
 void	ss(t_data **list_a, t_data **list_b);
@@ -47,6 +42,6 @@ void	rra(t_data **list_a);
 void	rrb(t_data **list_b);
 void	rrr(t_data **list_a, t_data **list_b);
 
-void	sort(t_data **list);
+void	sort(t_data **list, int argc);
 
 #endif

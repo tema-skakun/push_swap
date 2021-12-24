@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_steak.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:54:14 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/22 20:31:47 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:53:32 by jg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	fill_list(t_data *list, char *str)
 	}
 	list->value = inp_val;
 	list->index = i++;
-	list->flag = -1;
+	list->position = -1;
 	list->next = NULL;
 	return (0);
 }

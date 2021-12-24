@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:36:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/22 20:30:01 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/23 19:00:50 by jg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	print_content(t_data *begin)
 int	main(int argc, char **argv)
 {
 	t_data	*list;
+	// int		i;
 
 	if (argc < 3)// если передано меньше 2 аргументов - конец
 		return (0);
@@ -45,8 +46,10 @@ int	main(int argc, char **argv)
 		write(1, "the string is sorted\n", 21);
 		exit (0);
 	}
+	// i = search_min(&list);
+	// printf("%d\n", i);
 	sort(&list, argc);
-	print_content(list);
+	// print_content(list);
 	exit (0);
 	return (0);
 }

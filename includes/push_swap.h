@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/22 15:13:30 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/23 19:37:03 by jg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_data
 {
 	int				value;
 	int				index;
-	int				flag;
+	int				position;
 	struct s_data	*next;
 }				t_data;
 
@@ -43,5 +43,9 @@ void	rrb(t_data **list_b);
 void	rrr(t_data **list_a, t_data **list_b);
 
 void	sort(t_data **list, int argc);
+int		search_min(t_data **list);
+int		search_max(t_data **list);
+
+void	print_content(t_data *begin);
 
 #endif

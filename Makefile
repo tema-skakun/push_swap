@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+         #
+#    By: jg <jg@student.42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:51:18 by fdarkhaw          #+#    #+#              #
-#    Updated: 2021/12/21 22:03:04 by fdarkhaw         ###   ########.fr        #
+#    Updated: 2021/12/23 16:02:20 by jg               ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS		= 	./sources/main.c\
 				./sources/sorting_rotation.c\
 				./sources/sorting_revers_rotation.c\
 				./sources/sorting.c\
+				./sources/search.c\
 				
 		
 OBJ			= $(SRCS:.c=.o)

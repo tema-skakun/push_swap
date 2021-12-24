@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 16:53:36 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/22 20:27:01 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/24 13:21:42 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	check_dup(t_data *list)
 		list = list->next;
 		d++;
 	}
-	if (i != d)
+	if (i != d)// если в списоке есть дубли - 1
 		return (1);
 	return (0);
 }
@@ -68,14 +68,14 @@ int	check_sort(t_data *list)
 
 	i = 0;
 	d = 0;
-	while (list->next)
+	while (list->next != NULL)
 	{
 		d++;
 		if (list->value < list->next->value)
 			i++;
 		list = list->next;
 	}
-	if (i == d)
+	if (i == d)// если список отсортирован - 1
 		return (1);
 	return (0);
 }

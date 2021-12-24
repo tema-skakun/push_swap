@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/23 19:37:03 by jg               ###   ########.fr       */
+/*   Updated: 2021/12/24 22:02:50 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	rrr(t_data **list_a, t_data **list_b);
 void	sort(t_data **list, int argc);
 int		search_min(t_data **list);
 int		search_max(t_data **list);
+void	get_position(t_data **list, int argc);
+int		len_list(t_data *list);
 
 void	print_content(t_data *begin);
 

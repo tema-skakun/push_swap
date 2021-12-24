@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting_push.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 18:17:45 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/23 18:23:55 by jg               ###   ########.fr       */
+/*   Updated: 2021/12/24 12:54:04 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	push(t_data **list_a, t_data **list_b)
 		(*list_b) = tmp->next;
 		tmp->next = (*list_a);
 		(*list_a) = tmp;
-		//tmp = NULL;
+		tmp = NULL;
 	}
 }
 

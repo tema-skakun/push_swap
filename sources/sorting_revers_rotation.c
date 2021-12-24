@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 18:30:06 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/21 21:10:10 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/24 12:44:58 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	revers_rotation(t_data **list)
 {
-	t_data	*first;
+	//t_data	*first;
 	t_data	*last;
 	t_data	*before_last;
 
-	first = *list;
+	//first = *list;
 	last = *list;
 	before_last = *list;
 	if ((*list)->next != NULL)
@@ -27,7 +27,7 @@ void	revers_rotation(t_data **list)
 			before_last = before_last->next;
 		while (last->next)//ищу последний лист
 			last = last->next;
-		last->next = first;//последний лист связываю с первым
+		last->next = *list;//последний лист связываю с первым
 		*list = before_last->next;// указываю новое начало списка
 		before_last->next = NULL;// указываю новый конец списка
 	}

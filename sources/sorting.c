@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 21:14:28 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/23 20:50:07 by jg               ###   ########.fr       */
+/*   Updated: 2021/12/24 22:05:08 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,36 +44,33 @@ void	sort_3(t_data **list)
 		sa(list);
 }
 
-#include <stdio.h>
-
 void	sort_5(t_data **list_a)
 {
-	t_data	**list_b;
+	t_data	*list_b;
 	int		i;
 
-	i = 0;
-	list_b = (t_data **)malloc(sizeof(t_data));
-	while (len_list(*list_a) > 3)
-		pb(list_a, list_b);
-	if (!(check_sort(*list_a)))
+	list_b = NULL;
+	while (len_list(*list_a) > 3)// пока элементов в А > 3 пушу в Б
+		pb(list_a, &list_b);
+	if (!(check_sort(*list_a))) // если А не отсортирован - сортирую его
 		sort_3(list_a);
-	if (!(check_sort(*list_b)))
-		sa(list_b);
-	while (!(len_list(*list_a) == 5))
+	if (!(check_sort(list_b))) // если Б не отсортирован - сортирую его
+		sb(&list_b);
+	i = 0;
+	while (list_b && i < len_list(*list_a))	// пока лист Б существует ИИ i < длинны листа А
 	{
-		if ((*list_a)->value > (*list_b)->value)
-			pa(list_a, list_b);
-		else if (search_max(list_a) < (*list_b)->value \
-				&& (*list_a)->value == search_min(list_a))
-			pa(list_a, list_b);
+		if ((*list_a)->value > list_b->value)
+			pa(list_a, &list_b);
+		ra(list_a);
+		i++;
+	}
+	while (list_b)
+	{
+		pa(list_a, &list_b);
 		ra(list_a);
 	}
-	// while (!(check_sort(*list_a)))
-	// 	ra(list_a);
-	printf("list_b\n");
-	print_content(*list_b);
-	printf("list_a\n");
-	print_content(*list_a);
+	while (!(check_sort(*list_a)))
+		ra(list_a);
 }
 
 void	sort(t_data **list, int argc)
@@ -84,4 +81,6 @@ void	sort(t_data **list, int argc)
 		sort_3(list);
 	else if (argc == 6)
 		sort_5(list);
+	else if (argc <= 101)
+		get_position(list, argc);
 }

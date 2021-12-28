@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   create_steak.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jg <jg@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 18:54:14 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/23 16:53:32 by jg               ###   ########.fr       */
+/*   Updated: 2021/12/27 14:48:35 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	fill_list(t_data *list, char *str)
+int	fill_list(t_data *list, char *str, int i)
 {
-	int			i;
 	long int	inp_val;
 
-	i = 1;
 	inp_val = ft_atoi(str);
 	if (inp_val > 2147483647 || inp_val < -2147483648)
 	{
@@ -25,8 +23,8 @@ int	fill_list(t_data *list, char *str)
 		return (1);
 	}
 	list->value = inp_val;
-	list->index = i++;
-	list->position = -1;
+	list->index = -1;
+	list->position = i - 1;
 	list->next = NULL;
 	return (0);
 }
@@ -40,14 +38,14 @@ t_data	*create_list(int argc, char **argv)
 	i = 1;
 	tmp = (t_data *)malloc(sizeof(t_data));
 	list = tmp;
-	if (fill_list(tmp, argv[i]))
+	if (fill_list(tmp, argv[i], i))
 		exit (0);
 	while (argc > 2)
 	{
 		i++;
 		tmp->next = (t_data *)malloc(sizeof(t_data));
 		tmp = tmp->next;
-		if (fill_list(tmp, argv[i]))
+		if (fill_list(tmp, argv[i], i))
 			exit (0);
 		argc--;
 	}

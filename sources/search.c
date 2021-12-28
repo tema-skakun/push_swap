@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:11:46 by jg                #+#    #+#             */
-/*   Updated: 2021/12/24 22:04:00 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/27 16:14:06 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	search_min(t_data **list)
 	i = 2147483647;
 	while ((*list))
 	{
-		if ((*list)->value < i)
-			i = (*list)->value;// это минимальный
+		if ((*list)->index < i)
+			i = (*list)->index;// это минимальный
 		(*list) = (*list)->next;
 	}
 	return (i);
@@ -33,8 +33,8 @@ int	search_max(t_data **list)
 	i = -2147483648;
 	while ((*list))
 	{
-		if ((*list)->value > i)
-			i = (*list)->value;// это минимальный
+		if ((*list)->index > i)
+			i = (*list)->index;// это максимальный
 		(*list) = (*list)->next;
 	}
 	return (i);
@@ -54,14 +54,27 @@ void	get_position(t_data **list, int n)
 		i = 2147483647;
 		while (tmp)
 		{
-			if (tmp->value < i && tmp->position == -1)
+			if (tmp->value < i && tmp->index == -1)
 			{
 				i = tmp->value;
 				min_node = tmp;
 			}
 			tmp = tmp->next;
-		}
-		min_node->position += j++;
+		}// изменяю и увеличиваю position минимального значения
+		min_node->index += j++;
 		n--;
 	}
+}
+
+int	search_position(t_data **list, int val)
+{
+	int	pos;
+
+	pos = 1;
+	while ((*list)->index != val)
+	{
+		(*list) = (*list)->next;
+		pos++;
+	}
+	return (pos);
 }

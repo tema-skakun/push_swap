@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/24 22:02:50 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/27 14:46:25 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct s_data
 
 t_data	push_swap(int argc, char **argv);
 t_data	*create_list(int argc, char **argv);
-int		fill_list(t_data *list, char *str);
+// int		fill_list(t_data *list, char *str);
 int		validation_check(char **str);
 int		check_dup(t_data *list);
 int		check_sort(t_data *list);
@@ -47,6 +47,8 @@ int		search_min(t_data **list);
 int		search_max(t_data **list);
 void	get_position(t_data **list, int argc);
 int		len_list(t_data *list);
+int		search_position(t_data **list, int val);
+void	rotat(t_data **list_a);
 
 void	print_content(t_data *begin);
 

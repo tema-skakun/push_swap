@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 17:03:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/27 14:46:25 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/28 13:55:56 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,13 @@ void	rrb(t_data **list_b);
 void	rrr(t_data **list_a, t_data **list_b);
 
 void	sort(t_data **list, int argc);
-int		search_min(t_data **list);
-int		search_max(t_data **list);
+int		search_med(int min, int max);
+// int		search_min(t_data **list);
+// int		search_max(t_data **list);
 void	get_position(t_data **list, int argc);
 int		len_list(t_data *list);
 int		search_position(t_data **list, int val);
-void	rotat(t_data **list_a);
+void	sort_100(t_data **list_a, int argc);
 
 void	print_content(t_data *begin);
 

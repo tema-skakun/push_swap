@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 21:14:28 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/27 16:06:00 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/28 13:43:14 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ void	sort(t_data **list, int argc)
 	else if (argc <= 501)
 	{
 		get_position(list, argc);
-		rotat(list);
+		sort_100(list, argc);
 	}
 }

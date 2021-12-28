@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:36:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/27 16:10:37 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/28 18:21:32 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	print_content(t_data *begin)
 {
 	while (begin)
 	{
-		printf("v - %d	i - [%d]	p - [%d]\n", begin->value, begin->index, begin->position);
+		printf("v - %d i - [%d] p - [%d]\n", begin->value, begin->index, begin->position);
 		begin = begin->next;
 	}
 	printf("\n");
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 		exit (0);
 	}
 	sort(&list, argc);
-	print_content(list);
+	// print_content(list);
 	exit (0);
 	return (0);
 }

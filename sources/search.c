@@ -6,39 +6,44 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/23 15:11:46 by jg                #+#    #+#             */
-/*   Updated: 2021/12/27 16:14:06 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2021/12/28 15:59:34 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	search_min(t_data **list)
-{
-	int	i;
+// int	search_min(t_data **list)
+// {
+// 	int	min;
 
-	i = 2147483647;
-	while ((*list))
-	{
-		if ((*list)->index < i)
-			i = (*list)->index;// это минимальный
-		(*list) = (*list)->next;
-	}
-	return (i);
-}
+// 	min = 2147483647;
+// 	while ((*list))
+// 	{
+// 		if ((*list)->index < min)
+// 			min = (*list)->index;// это минимальный
+// 		(*list) = (*list)->next;
+// 	}
+// 	return (min);
+// }
 
-int	search_max(t_data **list)
-{
-	int	i;
+// int	search_max(t_data **list)
+// {
+// 	int	max;
 
-	i = -2147483648;
-	while ((*list))
-	{
-		if ((*list)->index > i)
-			i = (*list)->index;// это максимальный
-		(*list) = (*list)->next;
-	}
-	return (i);
-}
+// 	max = -2147483648;
+// 	while ((*list))
+// 	{
+// 		if ((*list)->index > max)
+// 			max = (*list)->index;// это максимальный
+// 		(*list) = (*list)->next;
+// 	}
+// 	return (max);
+// }
+
+// int	search_med(int min, int max)
+// {
+// 	return ((max + min + 1) / 2);
+// }
 
 void	get_position(t_data **list, int n)
 {
@@ -66,15 +71,26 @@ void	get_position(t_data **list, int n)
 	}
 }
 
+// int	search_position(t_data **list, int val)
+// {
+// 	int	pos;
+
+// 	pos = 1;
+// 	while ((*list)->index != val)
+// 	{
+// 		(*list) = (*list)->next;
+// 		pos++;
+// 	}
+// 	return (pos);
+// }
+
 int	search_position(t_data **list, int val)
 {
-	int	pos;
-
-	pos = 1;
-	while ((*list)->index != val)
+	while ((*list)->next)
 	{
+		if ((*list)->index == val)
+			return (1);
 		(*list) = (*list)->next;
-		pos++;
 	}
-	return (pos);
+	return (0);
 }

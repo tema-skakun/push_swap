@@ -6,7 +6,7 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 21:14:28 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/28 13:43:14 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2022/01/14 12:44:03 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,11 @@ int	len_list(t_data *list)
 
 void	sort_3(t_data **list)
 {
+	if (!(*list)->next->next)
+	{
+		sb(list);
+		return ;
+	}
 	if ((*list)->value < (*list)->next->value)
 	{
 		rra(list);
@@ -44,25 +49,24 @@ void	sort_3(t_data **list)
 		sa(list);
 }
 
-void	sort_5(t_data **list_a)
+void	sort_6(t_data **list_a)
 {
 	t_data	*list_b;
 	int		i;
 
 	list_b = NULL;
-	while (len_list(*list_a) > 3)// пока элементов в А > 3 пушу в Б
-		pb(list_a, &list_b);
-	if (!(check_sort(*list_a))) // если А не отсортирован - сортирую его
-		sort_3(list_a);
-	if (!(check_sort(list_b))) // если Б не отсортирован - сортирую его
-		sb(&list_b);
 	i = 0;
-	while (list_b && i < len_list(*list_a))	// пока лист Б существует ИИ i < длинны листа А
+	while (len_list(*list_a) > 3)
+		pb(list_a, &list_b);
+	if (!(check_sort(*list_a)))
+		sort_3(list_a);
+	if (!(check_sort(list_b)))
+		sort_3(&list_b);
+	while (list_b && len_list(*list_a) > i++)
 	{
 		if ((*list_a)->value > list_b->value)
 			pa(list_a, &list_b);
 		ra(list_a);
-		i++;
 	}
 	while (list_b)
 	{
@@ -73,17 +77,14 @@ void	sort_5(t_data **list_a)
 		ra(list_a);
 }
 
-void	sort(t_data **list, int argc)
+void	sorting(t_data **list, int argc)
 {
 	if (argc == 3)
 		sa(list);
 	else if (argc == 4)
 		sort_3(list);
-	else if (argc == 6)
-		sort_5(list);
-	else if (argc <= 501)
-	{
-		get_position(list, argc);
-		sort_100(list, argc);
-	}
+	else if (argc <= 7)
+		sort_6(list);
+	else if (argc > 7)
+		sort_100500(list, argc);
 }

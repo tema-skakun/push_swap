@@ -6,48 +6,56 @@
 /*   By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 18:36:57 by fdarkhaw          #+#    #+#             */
-/*   Updated: 2021/12/28 18:21:32 by fdarkhaw         ###   ########.fr       */
+/*   Updated: 2022/01/14 13:56:02 by fdarkhaw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+int	main(int argc, char **argv)
+{
+	t_data	*list;
+
+	if (argc < 3)
+		return (0);
+	if (validation_check(argv))
+	{
+		write(1, "Error\n", 6);
+		exit (1);
+	}
+	list = create_list(argc, argv);
+	if (check_dup(list))
+	{
+		write(1, "Error\n", 6);
+		exit (3);
+	}
+	if (check_sort(list))
+	{
+		write(1, "Error\n", 6);
+		exit (4);
+	}
+	sorting(&list, argc);
+	exit (0);
+	return (0);
+}
+/*
 #include <stdio.h>
 
 void	print_content(t_data *begin)
 {
 	while (begin)
 	{
-		printf("v - %d i - [%d] p - [%d]\n", begin->value, begin->index, begin->position);
+		printf("v - %d i - [%d] s - [%d]\n", begin->value, \
+				begin->index, begin->score);
 		begin = begin->next;
 	}
 	printf("\n");
 }
 
-int	main(int argc, char **argv)
-{
-	t_data	*list;
-
-	if (argc < 3)// если передано меньше 2 аргументов - конец
-		return (0);
-	if (validation_check(argv))// проверка на валидные значения
-	{
-		write(1, "error: the string contains invalid characters\n", 46);
-		exit (0);
-	}
-	list = create_list(argc, argv);//вызываю ф-цию создания струтуры
-	if (check_dup(list))// проверка на дубли
-	{
-		write(1, "error: the string contains duplicates\n", 38);
-		exit (0);
-	}
+_____in_main_____
+	print_content(list);
 	if (check_sort(list))// проверка на отсортированность
-	{
-		write(1, "the string is sorted\n", 21);
-		exit (0);
-	}
-	sort(&list, argc);
-	// print_content(list);
-	exit (0);
-	return (0);
-}
+		printf("проверка на отсортированность:	OK =)\n");
+	else
+		printf("проверка на отсортированность:	KO =(\n");
+*/

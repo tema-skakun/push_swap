@@ -6,14 +6,13 @@
 #    By: fdarkhaw <fdarkhaw@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 14:51:18 by fdarkhaw          #+#    #+#              #
-#    Updated: 2021/12/27 12:25:09 by fdarkhaw         ###   ########.fr        #
+#    Updated: 2022/01/14 11:53:58 by fdarkhaw         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= push_swap
 
 INC_DIR		= ./includes/
-LIBFT_DIR	= ./libft/
 
 SRCS		= 	./sources/main.c\
 				./sources/create_steak.c\
@@ -25,6 +24,7 @@ SRCS		= 	./sources/main.c\
 				./sources/sorting.c\
 				./sources/search.c\
 				./sources/sort_big.c\
+				./sources/fill_scr_and_last_rotate.c\
 				
 		
 OBJ			= $(SRCS:.c=.o)
@@ -37,18 +37,15 @@ CFLAGS		= -Wall -Werror -Wextra
 all			: $(NAME)
 
 $(NAME)		: $(OBJ)
-			@make -C $(LIBFT_DIR)
-			gcc -o $(NAME) $(CFLAGS) -I$(INC_DIR) $(OBJ) $(LIBFT_DIR)libft.a
+			gcc -o $(NAME) $(CFLAGS) -I$(INC_DIR) $(OBJ)
 
 %.o : %.c
 		gcc -c $(CFLAGS) -I$(INC_DIR) $< -o $@ -MD
 		
 clean:
-		@make clean -C $(LIBFT_DIR)
 		rm -f $(OBJ) $(DEP)
 		
 fclean: clean
-		@make fclean -C $(LIBFT_DIR)
 		rm -f $(NAME)
 
 re: fclean all
